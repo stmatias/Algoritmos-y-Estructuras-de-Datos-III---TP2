@@ -1,0 +1,3 @@
+/home/nicolas/Desktop/Materias/Algo3/tp2_algo3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/nicolas/Desktop/Materias/Algo3/tp2_algo3/cmake-build-debug/CMakeFiles/tp2_algo3.dir
+/home/nicolas/Desktop/Materias/Algo3/tp2_algo3/cmake-build-debug/CMakeFiles/edit_cache.dir

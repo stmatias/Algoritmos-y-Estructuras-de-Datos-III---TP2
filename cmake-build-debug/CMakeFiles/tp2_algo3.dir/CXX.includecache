@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/nicolas/Desktop/Materias/Algo3/tp2_algo3/AGM.cpp
+vector
+-
+iostream
+-
+utility
+-
+limits
+-
+
+/home/nicolas/Desktop/Materias/Algo3/tp2_algo3/main.cpp
+vector
+-
+iostream
+-
+utility
+-
+limits
+-
+stack
+-
+
