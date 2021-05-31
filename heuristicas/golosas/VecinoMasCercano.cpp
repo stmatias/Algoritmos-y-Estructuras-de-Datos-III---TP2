@@ -1,7 +1,4 @@
-#include "vector"
-#include "iostream"
-using namespace std;
-
+#include "VecinoMasCercano.h"
 //HAY QUE REFACTORIZAR ESTE CODIGO.
 
 /*La entrada consistira de una primera linea con dos enteros n, m indicando la cantidad de
@@ -40,39 +37,37 @@ retornar H
 //Se asume que el vector devuelto tiene en el primer vector,en el elemento 0 la cantidad de vertices agregados
 //En el segundo tiene el costo minimo y luego todos los valores correspondientes a la secuencia de recorrido optima segun este algoritmo.
 
-int primeroNoIndefinido(int v, vector<vector<int> >& M) {
-	for (int j = 0; j < M.size(); j++)
-	{
+int primeroNoIndefinido(int v, Grafo& M) {
+	for (int j = 0; j < M.size(); j++){
 		if (M[v][j] != -1) {
 			return j;
 		}
 	}
+	return 0;
 }
 
 
-vector<int> minimoCosto(int v, vector<vector<int> >& M) {
+vector<int> minimoCosto(int v, Grafo& M) {
 	int w = primeroNoIndefinido(v, M);
 	int min = M[v][w];
-	for (int j = 0; j < M.size(); j++)
-	{
+	for (int j = 0; j < M.size(); j++){
 		if (M[v][j] != -1 && M[v][j] <= min) {
 			min = M[v][j];
 			w = j;
 		}
 	}
 
-	for (int i = 0; i < M.size(); i++)
-	{
+	for (int i = 0; i < M.size(); i++){
 		M[i][v] = -1;
 	}
+
 	vector<int> res = { min, w };
 	return res;
 }
 
-vector<vector<int> >vecinoMasCercano(vector<vector<int>>& M) {
-
+Grafo vecinoMasCercano(Grafo& M) {
 	int v = 0;
-	vector<vector<int> >res = {};
+	Grafo res = {};
 	vector<int> nc = { 1,0 };
 	vector<int> h = { v };
 
