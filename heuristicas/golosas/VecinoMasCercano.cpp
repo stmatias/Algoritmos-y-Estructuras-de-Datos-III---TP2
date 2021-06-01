@@ -65,7 +65,7 @@ vector<int> minimoCosto(int v, Grafo& M) {
 	return res;
 }
 
-Grafo vecinoMasCercano(Grafo& M) {
+Grafo vecinoMasCercano(Grafo& M){
 	int v = 0;
 	Grafo res = {};
 	vector<int> nc = { 1,0 };
