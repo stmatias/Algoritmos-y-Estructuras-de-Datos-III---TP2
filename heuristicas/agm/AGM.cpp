@@ -84,7 +84,7 @@ vector<pair<int, int>> AGM(Grafo grafo, int u, int n) {
 
 }
 
-tuple <int, int, vector<int>> heuristica_agm(Grafo grafo){
+tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
     tuple <int, int, vector<int>> res;
 
     vector<pair<int, int>> aristas_agm = AGM(grafo, 0, grafo.size());
