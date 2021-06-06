@@ -1,6 +1,6 @@
 #include "Insercion.h"
 
-
+/*
 
 int elegir(Grafo &G, vector<bool> &visitados, vector<int> &H) {
 	int res = -1;
@@ -85,3 +85,5 @@ tuple <int, int, vector<int>> heurisitcaInsercion(Grafo &G){
 	return make_tuple(path.size(),cost,path);
 
 }
+
+*/

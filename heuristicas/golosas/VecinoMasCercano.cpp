@@ -1,4 +1,5 @@
 #include "VecinoMasCercano.h"
+#include "../../metaheuristicas/TabuSearchExploradas.h"
 
 void imprimirSolucion(vector<int> v) {
     string res = " ";
@@ -8,7 +9,7 @@ void imprimirSolucion(vector<int> v) {
     }
 }
 
-int primeroNoIndefinido(int v, Grafo& M) {
+int primeroNoIndefinido(int v, vector<vector<int>>& M) {
     for (int j = 0; j < M.size(); j++){
         if (M[v][j] != -1) {
             return j;
@@ -17,7 +18,7 @@ int primeroNoIndefinido(int v, Grafo& M) {
     return 0;
 }
 
-vector<int> minimoCosto(int v, Grafo& M) {
+vector<int> minimoCosto(int v, vector<vector<int>>& M) {
     int w = primeroNoIndefinido(v, M);
     int min = M[v][w];
     for (int j = 0; j < M.size(); j++){
@@ -35,9 +36,10 @@ vector<int> minimoCosto(int v, Grafo& M) {
     return res;
 }
 
-vector<vector<int> > vecinoMasCercano(Grafo& M){
+vector<vector<int> > vecinoMasCercano(vector<vector<int>>& M){
+    vector<vector<int> >M1 = M;
     int v = 1;
-    Grafo res = {};
+    vector<vector<int>> res = {};
     vector<int> nc = { 1,0 };
     vector<int> h = { v };
 
@@ -50,7 +52,7 @@ vector<vector<int> > vecinoMasCercano(Grafo& M){
         h.push_back(w);
         v = w;
     }
-    nc[1] += M[0][v - 1];
+    nc = {(int)h.size(), costo(M1,h)};
     res = { nc, h };
     return res;
 

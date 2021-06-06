@@ -1,8 +1,11 @@
 #include "./heuristicas/golosas/VecinoMasCercano.cpp"
 #include "./heuristicas/golosas/Insercion.cpp"
 #include "./heuristicas/agm/AGM.cpp"
+#include "./metaheuristicas/TabuSearchExploradas.h"
 #include "grafo.cpp"
+
 using namespace std;
+
 /*
 int main(int argc, char  **argv){
 	if (argc != 3 ){
@@ -38,16 +41,20 @@ int main(int argc, char  **argv){
 */
 
 int main() {
-	
-	//Asumiremos que -1 es indefinido o ya agregado
-	Grafo M = { {-1, 3,2 ,4},
-				{2, -1, 1,2},
-				{2, 1, -1,1},
-				{100, 2, 1,-1},
-	};
-	imprimirGrafo(M);
-	Grafo res = vecinoMasCercano(M);
-	cout << "El resultado es: " << " n: " << res[0][0] << " Costo: " << res[0][1] << " La solucion es: " << endl;
-    imprimirSolucion(res[1]);
-	return 0;
+
+    //Asumiremos que -1 es indefinido o ya agregado
+    vector<vector<int >> M = {
+            {-1, 1, 2, 100},
+            {1, -1, 1, 2},
+            {2, 1, -1, 1},
+            {100, 2, 1, -1},
+    };
+
+    //imprimirGrafo(M);
+    //vector<vector<int> > res = vecinoMasCercano(M);
+    //cout << "El resultado es: " << " n: " << res[0][0] << " Costo: " << res[0][1] << " La solucion es: " << endl;
+    vector<vector<int> > res2 = tabuSearchExploradas(M, 2, 20, 50);
+    imprimirSolucion(res2[1]);
+    cout << res2[0][1] << endl;
+    return 0;
 }

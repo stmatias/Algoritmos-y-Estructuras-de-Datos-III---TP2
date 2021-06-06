@@ -8,9 +8,9 @@
 using namespace std;
 
 
-int primeroNoIndefinido(int v, Grafo& M);
-vector<int> minimoCosto(int v, Grafo& M);
-Grafo vecinoMasCercano(Grafo& M);
+int primeroNoIndefinido(int v, vector<vector<int>>& M);
+vector<int> minimoCosto(int v, vector<vector<int>>& M);
+vector<vector<int>> vecinoMasCercano(vector<vector<int>>& M);
 void imprimirSolucion(vector<int> v);
 
 
