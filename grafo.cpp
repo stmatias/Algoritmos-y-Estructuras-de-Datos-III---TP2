@@ -1,7 +1,5 @@
 #include "grafo.h"
 
-
-
 Grafo leerGrafo(ifstream& inputFile) {
     int n, m;
     inputFile >> n >> m;

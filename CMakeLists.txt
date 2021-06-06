@@ -3,4 +3,4 @@ project(tp2_algo3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(tp2_algo3 main.cpp)
+add_executable(tp2_algo3 main.cpp metaheuristicas/TabuSearchExploradas.cpp metaheuristicas/TabuSearchExploradas.h metaheuristicas/TabuSearchEstructura.cpp metaheuristicas/TabuSearchEstructura.h)

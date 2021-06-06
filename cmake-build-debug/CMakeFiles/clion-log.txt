@@ -1,4 +1,4 @@
-/home/nicolas/Descargas/clion-2019.3.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/nicolas/Desktop/Materias/Algo3/tp2_algo3
+/home/walter/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/211.7442.42/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/nicolas/Desktop/Materias/Algo3/tp2_algo3/cmake-build-debug
+-- Build files have been written to: /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/cmake-build-debug

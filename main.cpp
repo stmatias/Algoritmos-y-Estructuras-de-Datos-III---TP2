@@ -3,12 +3,7 @@
 #include "./heuristicas/agm/AGM.cpp"
 #include "grafo.cpp"
 using namespace std;
-
-
-
-
-
-
+/*
 int main(int argc, char  **argv){
 	if (argc != 3 ){
 		cout<<"ERROR";
@@ -40,31 +35,19 @@ int main(int argc, char  **argv){
 	cout<<"\n";
 	return 0;
 }
+*/
 
-
-
-
-
-
-
-
-
-
-
-
-/*
 int main() {
 	
 	//Asumiremos que -1 es indefinido o ya agregado
-	Grafo M = { {-1, 1,2 ,100},
-				{1, -1, 1,2},
+	Grafo M = { {-1, 3,2 ,4},
+				{2, -1, 1,2},
 				{2, 1, -1,1},
 				{100, 2, 1,-1},
 	};
 	imprimirGrafo(M);
 	Grafo res = vecinoMasCercano(M);
-	//imprimirSolucion(res[1]);
-	
-	//cout << "El resultado es: " << " n: " << res[0][0] << " Costo: " << res[0][1] << " La solucion es: " << endl;
+	cout << "El resultado es: " << " n: " << res[0][0] << " Costo: " << res[0][1] << " La solucion es: " << endl;
+    imprimirSolucion(res[1]);
 	return 0;
-}*/
+}
