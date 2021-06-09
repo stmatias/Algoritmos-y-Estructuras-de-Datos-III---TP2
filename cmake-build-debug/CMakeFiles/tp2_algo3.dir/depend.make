@@ -9,6 +9,7 @@ CMakeFiles/tp2_algo3.dir/main.cpp.o: ../heuristicas/golosas/Insercion.h
 CMakeFiles/tp2_algo3.dir/main.cpp.o: ../heuristicas/golosas/VecinoMasCercano.cpp
 CMakeFiles/tp2_algo3.dir/main.cpp.o: ../heuristicas/golosas/VecinoMasCercano.h
 CMakeFiles/tp2_algo3.dir/main.cpp.o: ../main.cpp
+CMakeFiles/tp2_algo3.dir/main.cpp.o: ../metaheuristicas/TabuSearchExploradas.cpp
 CMakeFiles/tp2_algo3.dir/main.cpp.o: ../metaheuristicas/TabuSearchExploradas.h
 
 CMakeFiles/tp2_algo3.dir/metaheuristicas/TabuSearchEstructura.cpp.o: ../metaheuristicas/TabuSearchEstructura.cpp

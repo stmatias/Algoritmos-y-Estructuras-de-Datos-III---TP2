@@ -22,6 +22,6 @@ bool pertenece(Ciclo &ciclo, vector <Ciclo> &memoria);
 //Pre: vecinos.size()>0
 Ciclo obtenerMejor(vector <vector<int>> &M, vector <Ciclo> &vecinos, vector <Ciclo> &memoria);
 
-vector<vector<int>> tabuSearchExploradas(vector <vector<int>> &M, int t, int maxIteraciones, int porcentajeVecinos);
+tuple <int, int, vector<int>>  tabuSearchExploradas(vector <vector<int>> &M, int t, int maxIteraciones, int porcentajeVecinos);
 
 

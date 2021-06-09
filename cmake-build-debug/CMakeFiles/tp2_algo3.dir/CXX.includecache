@@ -43,16 +43,20 @@ climits
 -
 ../../grafo.h
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/grafo.h
+../../metaheuristicas/TabuSearchExploradas.h
+/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.h
 
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/heuristicas/golosas/VecinoMasCercano.cpp
 VecinoMasCercano.h
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/heuristicas/golosas/VecinoMasCercano.h
-../../metaheuristicas/TabuSearchExploradas.h
-/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.h
+../../metaheuristicas/TabuSearchExploradas.cpp
+/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.cpp
 
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/heuristicas/golosas/VecinoMasCercano.h
 vector
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/heuristicas/golosas/vector
+tuple
+-
 iostream
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/heuristicas/golosas/iostream
 ../../grafo.h
@@ -69,6 +73,14 @@ iostream
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.h
 grafo.cpp
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/grafo.cpp
+
+/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.cpp
+TabuSearchExploradas.h
+/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.h
+vector
+/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/vector
+../heuristicas/golosas/VecinoMasCercano.h
+/home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/heuristicas/golosas/VecinoMasCercano.h
 
 /home/walter/Documentos/Algoritmos-y-Estructuras-de-Datos-III---TP2/metaheuristicas/TabuSearchExploradas.h
 ../grafo.h

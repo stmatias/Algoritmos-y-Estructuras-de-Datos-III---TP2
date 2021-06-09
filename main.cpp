@@ -31,6 +31,9 @@ int main(int argc, char  **argv){
 	}else if (heuristica == 2){
 		res = heuristicaAGM(G);
 	}
+	else if(heuristica == 3){
+	    res = tabuSearchExploradas(G, 10, 10, 10);
+	}
 
 	cout<<"\n"<<get<0>(res)<<"\n"<<get<1>(res)<<"\n";
 	
@@ -40,23 +43,3 @@ int main(int argc, char  **argv){
 	cout<<"\n";
 	return 0;
 }
-/*
-
-int main() {
-
-    //Asumiremos que -1 es indefinido o ya agregado
-    vector<vector<int >> M = {
-            {-1, 1, 2, 100},
-            {1, -1, 1, 2},
-            {2, 1, -1, 1},
-            {100, 2, 1, -1},
-    };
-
-    //imprimirGrafo(M);
-    //vector<vector<int> > res = vecinoMasCercano(M);
-    //cout << "El resultado es: " << " n: " << res[0][0] << " Costo: " << res[0][1] << " La solucion es: " << endl;
-    vector<vector<int> > res2 = tabuSearchExploradas(M, 2, 20, 50);
-    imprimirSolucion(res2[1]);
-    cout << res2[0][1] << endl;
-    return 0;
-}*/

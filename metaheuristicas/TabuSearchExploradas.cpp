@@ -18,8 +18,7 @@ int costo(vector<vector<int> > &M, Ciclo &ciclo) {
     for (int i = 0; i < ciclo.size(); i++) {
         if (i == ciclo.size() - 1) {
             costo = costo + M[ciclo[i] - 1][ciclo[0] - 1];
-        }
-        else{
+        } else {
             costo = costo + M[ciclo[i] - 1][ciclo[i + 1] - 1];
         }
     }
@@ -67,10 +66,9 @@ Ciclo obtenerMejor(vector<vector<int> > &M, vector<Ciclo> &vecinos, vector<Ciclo
             vecinosNoVisitados.push_back(vecinos[i]);
         }
     }
-    if(vecinosNoVisitados.size()==0){
+    if (vecinosNoVisitados.size() == 0) {
         return {};
-    }
-    else{
+    } else {
         Ciclo cicloMejor = vecinosNoVisitados[0];
         for (int i = 0; i < vecinosNoVisitados.size(); i++) {
             Ciclo cicloAct = vecinosNoVisitados[i];
@@ -83,7 +81,8 @@ Ciclo obtenerMejor(vector<vector<int> > &M, vector<Ciclo> &vecinos, vector<Ciclo
 
 }
 
-vector<vector<int>> tabuSearchExploradas(vector<vector<int> > &M, int t, int maxIteraciones, int porcentajeVecinos) {
+tuple<int, int, vector<int>>
+tabuSearchExploradas(vector<vector<int> > &M, int t, int maxIteraciones, int porcentajeVecinos) {
     vector<vector<int>> M1 = M;
     vector<int> ciclo = vecinoMasCercano(M1)[1];
     vector<int> mejorCiclo = ciclo;
@@ -96,7 +95,7 @@ vector<vector<int>> tabuSearchExploradas(vector<vector<int> > &M, int t, int max
             if (memoria.size() < t) {
                 memoria.push_back(ciclo);
             }
-            if(ciclo.size() != 0){
+            if (ciclo.size() != 0) {
                 if (costo(M, ciclo) < costo(M, mejorCiclo)) {
                     mejorCiclo = ciclo;
                 }
@@ -105,5 +104,5 @@ vector<vector<int>> tabuSearchExploradas(vector<vector<int> > &M, int t, int max
         i++;
     }
     vector<int> nc = {(int) mejorCiclo.size(), costo(M, mejorCiclo)};
-    return {nc, mejorCiclo};
+    return make_tuple(nc[0], nc[1], mejorCiclo);
 }
