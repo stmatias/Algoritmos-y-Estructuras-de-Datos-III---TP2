@@ -1,10 +1,9 @@
 #include "VecinoMasCercano.h"
-#include "../../metaheuristicas/TabuSearchExploradas.h"
+#include "../../metaheuristicas/TabuSearchExploradas.cpp"
 
 void imprimirSolucion(vector<int> v) {
     string res = " ";
-    for (int i = 0; i < v.size(); i++)
-    {
+    for (int i = 0; i < v.size(); i++){
         cout << v[i] << endl;
     }
 }
@@ -56,6 +55,11 @@ vector<vector<int> > vecinoMasCercano(vector<vector<int>>& M){
     res = { nc, h };
     return res;
 
+}
+
+tuple <int, int, vector<int> > heuristicaVecino(Grafo &G){
+    vector<vector<int> > res = vecinoMasCercano(G);
+    return make_tuple(res[0][0],res[0][1],res[1]);
 }
 
 

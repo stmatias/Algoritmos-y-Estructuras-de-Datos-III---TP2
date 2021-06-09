@@ -6,7 +6,7 @@
 #include <stack>
 using namespace std;
 
-/*
+
 pair<vector<int>, vector<int>> dfs(Grafo grafo, int root, int n) {
 	int next = 1;
 	vector<int>visitados(n);
@@ -120,4 +120,4 @@ tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
     return res;
 
 }
- */
+ 

@@ -1,6 +1,6 @@
 #include "Insercion.h"
 
-/*
+
 
 int elegir(Grafo &G, vector<bool> &visitados, vector<int> &H) {
 	int res = -1;
@@ -80,10 +80,9 @@ tuple <int, int, vector<int>> heurisitcaInsercion(Grafo &G){
 	vector<int> path  = hamiltonianoInsercion(G);
 	int cost = 0;
 	for (int i = 0; i < path.size()-1; i++){
-		cost += G[path[path[path.size()-1]]][path[path[0]]];
+		cost += G[path[i]][path[((i+1) % path.size())]];
 	}
 	return make_tuple(path.size(),cost,path);
 
 }
 
-*/

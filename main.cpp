@@ -6,7 +6,7 @@
 
 using namespace std;
 
-/*
+
 int main(int argc, char  **argv){
 	if (argc != 3 ){
 		cout<<"ERROR";
@@ -20,13 +20,15 @@ int main(int argc, char  **argv){
 	ifstream fileInput;
     fileInput.open(input);
 
+
 	Grafo G = leerGrafo(fileInput);
-	imprimirGrafo(G);
 	tuple <int, int, vector<int>> res;
 
 	if(heuristica == 0){
-		res = heurisitcaInsercion(G);
+		res = heuristicaVecino(G);
 	}else if (heuristica == 1){
+		res = heurisitcaInsercion(G);
+	}else if (heuristica == 2){
 		res = heuristicaAGM(G);
 	}
 
@@ -38,7 +40,7 @@ int main(int argc, char  **argv){
 	cout<<"\n";
 	return 0;
 }
-*/
+/*
 
 int main() {
 
@@ -57,4 +59,4 @@ int main() {
     imprimirSolucion(res2[1]);
     cout << res2[0][1] << endl;
     return 0;
-}
+}*/
