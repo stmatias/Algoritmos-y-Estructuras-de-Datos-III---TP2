@@ -91,7 +91,6 @@ tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
     vector<pair<int, int>> aristas_agm = AGM(grafo, 0, grafo.size());
 
     vector<vector<int>>arbol_minimo(grafo.size());
-    
     for(int i=0;i<grafo.size();i++){
         for(int j=0;j<grafo.size();j++){
         	arbol_minimo[i].push_back(-1);
@@ -110,7 +109,7 @@ tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
 
     unsigned  int cost=0;
     for(int i=0; i<final_path.second.size()-1; i++){
-    	cost+=grafo[final_path.second[final_path.second[i]-1]][final_path.second[final_path.second[i+1]-1]];
+    	cost+=grafo[final_path.second[i]][final_path.second[((i+1) % final_path.second.size())]];
     }
     cost+=grafo[final_path.second[final_path.second[final_path.second.size()-1]]][final_path.second[final_path.second[0]]];
 
