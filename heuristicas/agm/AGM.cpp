@@ -109,10 +109,11 @@ tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
 
     unsigned  int cost=0;
     for(int i=0; i<final_path.second.size()-1; i++){
-    	cost+=grafo[final_path.second[i]][final_path.second[((i+1) % final_path.second.size())]];
+    	cost+=grafo[final_path.second[i]-1][final_path.second[i+1]-1];
     }
-    cost+=grafo[final_path.second[final_path.second[final_path.second.size()-1]]][final_path.second[final_path.second[0]]];
-
+    int l  =final_path.second.size()-1;
+    cost+=grafo[final_path.second[l]-1][final_path.second[0]-1];
+    
     res= make_tuple(final_path.second.size(),cost,final_path.second);
 
 
