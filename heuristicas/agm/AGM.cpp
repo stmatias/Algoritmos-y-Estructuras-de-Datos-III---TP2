@@ -31,13 +31,16 @@ pair<vector<int>, vector<int>> dfs(Grafo grafo, int root, int n) {
 				orden[i] = next;
 				stack.push(i);
 				hayNodo = true;
+				
 				break;
 			}
 		}
 		if (!hayNodo)stack.pop();
 	}
+	
 	res.first = pred;
 	res.second = orden;
+	
 	return res;
 }
 
@@ -63,6 +66,10 @@ pair<int, int>minEdge(Grafo grafo, vector<int>visitados) {
 	return res;
 }
 
+int arg(int a,vector<int>l){
+	for(int i = 0;i<l.size();i++)
+		if(l[i]==a)return i;
+}
 //u es el vertince donde iniciamos. El grafo es una matriz de adyacencia. n es la cantidad de vertices
 vector<pair<int, int>> AGM(Grafo grafo, int u, int n) {
 	int i = 1;
@@ -78,6 +85,7 @@ vector<pair<int, int>> AGM(Grafo grafo, int u, int n) {
 		visitados[v_e.second] = 1;
 
 		aristas.push_back(v_e);
+		
 		i++;
 	}
 
@@ -97,22 +105,30 @@ tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
         }
     }
 
+
     for(int i=0;i<aristas_agm.size();i++){
         unsigned int a = aristas_agm[i].first;
         unsigned int b = aristas_agm[i].second;
         arbol_minimo[a][b]=1;
         arbol_minimo[b][a]=1;
 
+
     }
+   
 
     pair<vector<int>, vector<int>> final_path = dfs(arbol_minimo, 0, grafo.size());
 
     unsigned  int cost=0;
     for(int i=0; i<final_path.second.size()-1; i++){
-    	cost+=grafo[final_path.second[i]-1][final_path.second[i+1]-1];
+    	int v = arg(i+1,final_path.second);
+    	int w = arg(i+2,final_path.second);
+    	
+    	cost+=grafo[v][w];
     }
-    int l  =final_path.second.size()-1;
-    cost+=grafo[final_path.second[l]-1][final_path.second[0]-1];
+    int v = arg(final_path.second.size(),final_path.second);
+
+    int w = arg(0,final_path.second);
+    cost+=grafo[v][w];
     
     res= make_tuple(final_path.second.size(),cost,final_path.second);
 
@@ -120,4 +136,5 @@ tuple <int, int, vector<int>> heuristicaAGM(Grafo grafo){
     return res;
 
 }
- 
+
+
