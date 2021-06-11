@@ -25,11 +25,23 @@ int costo(vector<vector<int> > &M, Ciclo &ciclo) {
     return costo;
 }
 
-vector<Ciclo> obtenerSubVecindad(vector<vector<int> > &M, Ciclo &ciclo, int porcentajeVecinos) {
+bool pertenece(Ciclo &ciclo, vector<Ciclo> &memoria) {
+    for (int i = 0; i < memoria.size(); i++) {
+        if (ciclosIguales(ciclo, memoria[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
+vector<Ciclo> obtenerSubVecindad(vector<vector<int> > &M, Ciclo &ciclo, int porcentajeVecinos, vector<Ciclo> &memoria) {
     vector<Ciclo> temp = {};
     for (int i = 0; i < ciclo.size(); i++) {
         for (int j = i + 1; j < ciclo.size(); j++) {
-            temp.push_back(intercambiar(ciclo, i, j));
+            Ciclo actual = intercambiar(ciclo, i, j);   
+            if(!pertenece(actual, memoria)){
+                temp.push_back(actual);
+            }
         }
     }
     vector<Ciclo> res = {};
@@ -49,37 +61,18 @@ bool ciclosIguales(Ciclo &ciclo1, Ciclo &ciclo2) {
     return true;
 }
 
-bool pertenece(Ciclo &ciclo, vector<Ciclo> &memoria) {
-    for (int i = 0; i < memoria.size(); i++) {
-        if (ciclosIguales(ciclo, memoria[i])) {
-            return true;
-        }
-    }
-    return false;
-}
-
 //Pre: vecinos.size()>0
-Ciclo obtenerMejor(vector<vector<int> > &M, vector<Ciclo> &vecinos, vector<Ciclo> &memoria) {
-    vector<Ciclo> vecinosNoVisitados = {};
+Ciclo obtenerMejor(vector<vector<int> > &M, vector<Ciclo> &vecinos) {
+    Ciclo cicloMejor = vecinos[0];
     for (int i = 0; i < vecinos.size(); i++) {
-        if (!pertenece(vecinos[i], memoria)) {
-            vecinosNoVisitados.push_back(vecinos[i]);
+        Ciclo cicloAct = vecinos[i];
+        if (costo(M, cicloAct) < costo(M, cicloMejor)) {
+            cicloMejor = cicloAct;
         }
     }
-    if (vecinosNoVisitados.size() == 0) {
-        return {};
-    } else {
-        Ciclo cicloMejor = vecinosNoVisitados[0];
-        for (int i = 0; i < vecinosNoVisitados.size(); i++) {
-            Ciclo cicloAct = vecinosNoVisitados[i];
-            if (costo(M, cicloAct) < costo(M, cicloMejor)) {
-                cicloMejor = cicloAct;
-            }
-        }
-        return cicloMejor;
-    }
-
+    return cicloMejor;
 }
+
 
 tuple<int, int, vector<int>>
 tabuSearchExploradas(vector<vector<int> > &M, int t, int maxIteraciones, int porcentajeVecinos) {
@@ -88,10 +81,10 @@ tabuSearchExploradas(vector<vector<int> > &M, int t, int maxIteraciones, int por
     vector<int> mejorCiclo = ciclo;
     vector<Ciclo> memoria = {};
     int i = 0;
-    while (i < maxIteraciones) {
-        vector<Ciclo> vecinos = obtenerSubVecindad(M, ciclo, porcentajeVecinos);
+    while (i <= maxIteraciones) {
+        vector<Ciclo> vecinos = obtenerSubVecindad(M, ciclo, porcentajeVecinos, memoria);
         if (vecinos.size() > 0) {
-            ciclo = obtenerMejor(M, vecinos, memoria);
+            ciclo = obtenerMejor(M, vecinos);
             if (memoria.size() < t) {
                 memoria.push_back(ciclo);
             }
